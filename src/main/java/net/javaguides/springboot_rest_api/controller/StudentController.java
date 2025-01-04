@@ -70,6 +70,7 @@ public class StudentController {
         student.setId(studentId);
         System.out.println(student.getFirstName());
         System.out.println(student.getLastName());
+
         return student;
     }
 }
