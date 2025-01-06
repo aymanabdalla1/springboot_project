@@ -1,10 +1,10 @@
-package net.javaguides.springboot_rest_api;
+package net.javaguides.ems_backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootRestApiApplicationTests {
+class EmsBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
