@@ -5,10 +5,9 @@ import net.javaguides.ems_backend.dto.DepartmentDto;
 import net.javaguides.ems_backend.service.DepartmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @RestController
@@ -23,5 +22,19 @@ public class DepartmentController {
         DepartmentDto department = departmentService.createDepartment(departmentDto);
         return new ResponseEntity<>(department, HttpStatus.CREATED);
     }
+
+    // Build Get Department REST API
+    @GetMapping("/{id}")
+    public ResponseEntity<DepartmentDto> getDepartmentById(@PathVariable("id") Long departmentId) {
+        DepartmentDto departmentDto = departmentService.getDepartmentById(departmentId);
+        return ResponseEntity.ok(departmentDto);
+    }
+
+    // Build Get All Departments REST API
+    @GetMapping
+    public ResponseEntity<List<DepartmentDto>> getAllDepartments() {
+        List<DepartmentDto> departments = departmentService.getAllDepartments();
+        return ResponseEntity.ok(departments);
+    };
 
 }
